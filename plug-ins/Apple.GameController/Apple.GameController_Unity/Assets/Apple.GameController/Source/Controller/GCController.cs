@@ -175,10 +175,12 @@ namespace Apple.GameController.Controller
 
         public void Poll()
         {
-            _previousButtonPressStates = new Dictionary<GCControllerInputName, bool>(_buttonPressStates);            
-            foreach (var key in _buttonPressStates.Keys.ToList())
+            _previousButtonPressStates.Clear();
+
+            foreach (KeyValuePair<GCControllerInputName, bool> state in _buttonPressStates)
             {
-                _buttonPressStates[key] = false;
+                _previousButtonPressStates.Add(state.Key, state.Value);
+                _buttonPressStates[state.Key] = false;
             }
 
             InputState = IsConnected ? GCControllerService.PollController(Handle) : GCControllerInputState.None;

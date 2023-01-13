@@ -1,6 +1,10 @@
 # CHANGELOG
 All notable changes to this project will be documented in this file.
 
+## [1.0.3] - 2022-11-29
+### Changed
+- Removed allocation when polling controller.
+
 ## [1.0.2] - 2022-11-29
 ### Changed
 - Disabled bitcode generation in all native library project build targets.
